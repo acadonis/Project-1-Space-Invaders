@@ -4,8 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const width = 6
   const grid = document.querySelector('.grid')
   let turretCurrentIndex = null
-  const numberOfInvaders = 2
-  //for use in loop to generate beer from position
+
+  //for use in loop to generate invader from position
   //
   //
 
@@ -18,23 +18,17 @@ document.addEventListener('DOMContentLoaded', () => {
   for(let i = 0; i < width * width; i++) {
     //sets variable square to create the element div
     const square = document.createElement('div')
-
     //pushes the div to the array squares
     squares.push(square)
     //appends the div to the main html class grid
     grid.appendChild(square)
   }
-  console.log(squares)
+
   turretCurrentIndex = squares.length-1
 
-  //add lots of invaders
-
-  for(let i = 0; i < numberOfInvaders; i++) {
-    // let  = (starting array position)
-    console.log('squares')
-  }
 
   // add turret===================================================
+
   squares[squares.length-1].classList.add('turret')
 
   //move turret ==================================================
@@ -55,59 +49,139 @@ document.addEventListener('DOMContentLoaded', () => {
     squares[turretCurrentIndex].classList.add('turret')
   }
 
-  // add invader - don't know if the below subtraction serves any purpose
-  // some kind of loop to add the number of invaders in the const no. of invaders.eg. if i is less than 2 continue to add classes invader to the next +1 div in the class squares
+  //add Invaders========================================
 
-  // squares[squares.length-(squares.length)].classList.add('invader')
-  squares[0].classList.add('invader')
-  console.log(squares.length-(squares.length))
+  const numberOfInvaders = 1
+  const invadersPosition = []
 
-  // let invaderCurrentIndex = squares.length-(squares.length)
-  let invaderCurrentIndex = 0
+  for (let i = 0; i < numberOfInvaders; i++) {
+    squares[i].classList.add('invader')
+    //need invaders position to feed into the below and update as they move
+    invadersPosition.push(i)
+    console.log(invadersPosition)
+  }
+
+
+
+  //single invador movement, need to get into a loop of some kind to loop through. ForEach on squares? If has class invader, remove then add to next
+
+  // let invader3Id = null
+  //
+  // let invader3CurrentIndex = 2
+  //
+  // invader3Id = setInterval(moveInvader3, 1000)
+  //
+  // // move invaders down the grid=========================
+  //
+  // function moveInvader3() {
+  //
+  //   squares[invader3CurrentIndex].classList.remove('invader')
+  //
+  //   squares[invader3CurrentIndex+=1].classList.add('invader')
+  //
+  //   if(invader3CurrentIndex === (squares.length - (width+10))) {
+  //     clearInterval(invader3Id)
+  //
+  //   }
+  // }
+  //
+  // let invader2Id = null
+  //
+  // let invader2CurrentIndex = 1
+  //
+  // invader2Id = setInterval(moveInvader2, 1000)
+  //
+  // // move invaders down the grid=========================
+  //
+  // function moveInvader2() {
+  //
+  //   squares[invader2CurrentIndex].classList.remove('invader')
+  //
+  //   squares[invader2CurrentIndex+=1].classList.add('invader')
+  //
+  //   if(invader2CurrentIndex === (squares.length - (width+10))) {
+  //     clearInterval(invader2Id)
+  //
+  //   }
+  // }
+
+  let invader1CurrentIndex = 0
 
   //move invader one div to the right every second================
 
-  let invaderId = null
+  let invader1Id = null
 
-  invaderId = setInterval(moveInvader, 500)
+  invader1Id = setInterval(moveInvader1, 1000)
 
-  // move invader down the grid=========================
+  // move invaders down the grid=========================
 
-  function moveInvader() {
+  function moveInvader1() {
 
-    squares[invaderCurrentIndex].classList.remove('invader')
+    squares[invader1CurrentIndex].classList.remove('invader')
 
-    squares[invaderCurrentIndex+=1].classList.add('invader')
+    squares[invader1CurrentIndex+=1].classList.add('invader')
 
-    if(invaderCurrentIndex === (squares.length - (width+10))) {
-      clearInterval(invaderId)
-      // } else if (true) {
-      //   squares[invaderCurrentIndex+=1].classList.add('invader')
-      //
-      // } else if ((invaderCurrentIndex % width > width - 1)) {
-      //   invaderCurrentIndex-=1
-
+    if(invader1CurrentIndex === (squares.length - (width+10))) {
+      clearInterval(invader1Id)
 
     }
   }
 
-  // key trigger event to add clas phones with interval to move it up (-5 array places) when space hit, again some kind of array / loop as will be multiple
 
-  //fire missile ===================================================================
 
-  function fireMissile(e) {
+  //ALMOST....
 
-    switch(e.keyCode) {
-      case 32:
-        squares[turretCurrentIndex-width].classList.add('missile')
-        break
+  // let missileId = null
+  //
+  // missileId = setInterval(fireMissile, 500)
+  //
+  //
+  // function fireMissile(e) {
+  //   squares[missileCurrentIndex].classList.remove('missile')
+  //   switch(e.keyCode) {
+2  //     case 32:
+  //       if(missileCurrentIndex - width >= 0) missileCurrentIndex -= width
+  //       break
+  //   }
+  //   squares[missileCurrentIndex].classList.add('missile')
+  // }
+
+
+  // function fire missile ===================================================================
+  //
+  let missileCurrentIndex = []
+  console.log(missileCurrentIndex)
+  let missileId = null
+
+  // missileId = setInterval(moveMissile, 500)
+  //
+  //
+  //
+  const turret = document.querySelector('.turret')
+  console.log(turret)
+
+  turret.addEventListener('click', moveMissile)
+
+  function moveMissile() {
+
+    squares[turretCurrentIndex].classList.remove('missile')
+
+    squares[turretCurrentIndex-=width].classList.add('missile')
+    missileCurrentIndex.push(turretCurrentIndex)
+
+    if(missileCurrentIndex < 10) {
+      clearInterval(missileId)
+      squares[missileCurrentIndex].classList.remove('missile')
     }
+
   }
 
 
 
-  document.addEventListener('keyup', fireMissile)
 
+  // event listeners
+  //
   document.addEventListener('keyup', moveTurret)
+
 
 })

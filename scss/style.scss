@@ -1,8 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
-
 * {
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
 }
 
 body {
@@ -49,4 +46,12 @@ header {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.missile {
+  background-image: url(phones.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
 }
