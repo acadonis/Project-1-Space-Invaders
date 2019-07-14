@@ -147,10 +147,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // function fire missile ===================================================================
-  //
-  // let missileCurrentIndex = []
-  // console.log(missileCurrentIndex)
-  // let missileId = null
 
   function fireMissile(e) {
 
@@ -166,33 +162,33 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('keyup', fireMissile)
 
 
-
-  // missileId = setInterval(moveMissile, 500)
-  //
-  //
-  //
-  // const turret = document.querySelector('.turret')
-  // console.log(turret)
-  //
-  // turret.addEventListener('click', moveMissile)
-  //
-  // function moveMissile() {
-  //
-  //   squares[turretCurrentIndex].classList.remove('missile')
-  //   squares[turretCurrentIndex-=width].classList.add('missile')
-  //   missileCurrentIndex.push(turretCurrentIndex)
-  //
-  //   if(missileCurrentIndex < 10) {
-  //     clearInterval(missileId)
-  //     squares[missileCurrentIndex].classList.remove('missile')
-  //   }
-  //
-  // }
+  // function to move missile =============================
 
 
 
+  let missileId = null
 
-  // event listeners
+  missileId = setInterval(moveMissile, 500)
+
+  let missileCurrentIndex = turretCurrentIndex
+  console.log(missileCurrentIndex)
+  function moveMissile() {
+  //
+    squares[missileCurrentIndex].classList.remove('missile')
+    squares[missileCurrentIndex-=width].classList.add('missile')
+
+
+    if(missileCurrentIndex < 10) {
+      clearInterval(missileId)
+      squares[missileCurrentIndex].classList.remove('missile')
+    }
+
+  }
+
+
+
+
+
   //
   document.addEventListener('keyup', moveTurret)
 
