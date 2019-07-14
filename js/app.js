@@ -53,29 +53,48 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //add Invaders========================================
 
+  // const numberOfInvaders = 10
+  // const invadersPosition = []
+  //
+  // for (let i = 0; i < numberOfInvaders; i++) {
+  //   invadersPosition.push(i)
+  //   squares[i].classList.add('invader')
+  //
+  //   console.log(invaders)
+  // }
+
+
+  //move invader one div to the right every second================
+
+
+
+  // move invaders down the grid=========================
+
+
   const numberOfInvaders = 10
-  let invadersPosition = []
+  const invadersPosition = []
 
-  for (let i = 0; i < numberOfInvaders; i++) {
-    squares[i].classList.add('invader')
-    //need invaders position to feed into the below and update as they move
-    invadersPosition.push(i)
-    console.log(invadersPosition)
-  }
 
-  function moveInvader() {
-    for (let i = 0; i < grid.length; i++) {
-      squares[invadersPosition].classList.remove('invader')
-      squares[invadersPosition+=1].classList.add('invader')
+  function invaders() {
+
+
+
+    for (let i = 0; i < numberOfInvaders; i++) {
+      invadersPosition.push(i)
+
+      squares[invadersPosition[i]].classList.add('invader')
+      squares[invadersPosition[i]+=1].classList.remove('invader')
+      // squares[i+=1].classList.add('invader')
+
+    //   squares[invadersPosition[i]].classList.remove('invader')
+    //
+    //   squares[invadersPosition[i]+=1].classList.add('invader')
     }
   }
 
-  let moveInvaderId = null
-  moveInvaderId = setInterval(moveInvader,500)
-  moveInvader()
+  let invaderId = null
 
-
-
+  invaderId = setInterval(invaders, 1000)
 
   //REMINDER invadersPosition = [0, 1, 2, 3, 4, 5, ....]
 
