@@ -148,11 +148,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // function fire missile ===================================================================
 
+  // function fireMissile(e) {
+  //
+  //   switch(e.keyCode) {
+  //     case 32:
+  //       squares[turretCurrentIndex-width].classList.add('missile')
+  //
+  //       break
+  //   }
+  // }
+  //
+  //
+  //
+  // document.addEventListener('keyup', fireMissile)
+
   function fireMissile(e) {
 
     switch(e.keyCode) {
       case 32:
-        squares[turretCurrentIndex-width].classList.add('missile')
+        let missileId = null
+
+        missileId = setInterval(moveMissile, 500)
+
+        let missileCurrentIndex = turretCurrentIndex
+
+        function moveMissile() {
+          //
+          squares[missileCurrentIndex].classList.remove('missile')
+          squares[missileCurrentIndex-=width].classList.add('missile')
+
+
+          if(missileCurrentIndex < 10) {
+            clearInterval(missileId)
+            squares[missileCurrentIndex].classList.remove('missile')
+          }
+
+        }
         break
     }
   }
@@ -162,28 +193,30 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('keyup', fireMissile)
 
 
+
+
   // function to move missile =============================
 
 
-
-  let missileId = null
-
-  missileId = setInterval(moveMissile, 500)
-
-  let missileCurrentIndex = turretCurrentIndex
-  console.log(missileCurrentIndex)
-  function moveMissile() {
+  // 
+  // let missileId = null
   //
-    squares[missileCurrentIndex].classList.remove('missile')
-    squares[missileCurrentIndex-=width].classList.add('missile')
-
-
-    if(missileCurrentIndex < 10) {
-      clearInterval(missileId)
-      squares[missileCurrentIndex].classList.remove('missile')
-    }
-
-  }
+  // missileId = setInterval(moveMissile, 500)
+  //
+  // let missileCurrentIndex = turretCurrentIndex
+  //
+  // function moveMissile() {
+  // //
+  //   squares[missileCurrentIndex].classList.remove('missile')
+  //   squares[missileCurrentIndex-=width].classList.add('missile')
+  //
+  //
+  //   if(missileCurrentIndex < 10) {
+  //     clearInterval(missileId)
+  //     squares[missileCurrentIndex].classList.remove('missile')
+  //   }
+  //
+  // }
 
 
 
