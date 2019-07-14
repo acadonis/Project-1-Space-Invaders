@@ -27,15 +27,15 @@ h1 {
   flex-wrap: wrap; }
 
 .grid div {
-  width: calc(100% / 10);
-  height: calc(100% / 10);
+  width: calc(100% / 7);
+  height: calc(100% / 7);
   border: 1px dashed black; }
 
 .turret {
   background-image: url(dwain.jpeg);
   background-size: contain;
   background-repeat: no-repeat;
-  background-posaition: center; }
+  background-position: center; }
 
 .invader {
   background-image: url(pint.jpeg);

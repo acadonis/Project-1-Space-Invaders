@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 //const squares contains the divs created by the squares push squares
   const squares = []
-  const width = 10
+  const width = 7
   const grid = document.querySelector('.grid')
   let turretCurrentIndex = null
   const scoreBoard = document.querySelector('.score')
@@ -53,8 +53,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //add Invaders========================================
 
-  const numberOfInvaders = 1
-  const invadersPosition = []
+  const numberOfInvaders = 10
+  let invadersPosition = []
 
   for (let i = 0; i < numberOfInvaders; i++) {
     squares[i].classList.add('invader')
@@ -63,72 +63,108 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(invadersPosition)
   }
 
-
-
-  // single invador movement, need to get into a loop of some kind to loop through. ForEach on squares? If has class invader, remove then add to next
-
-  let invader3Id = null
-
-  let invader3CurrentIndex = 2
-
-  invader3Id = setInterval(moveInvader3, 1000)
-
-  // move invaders down the grid=========================
-
-  function moveInvader3() {
-
-    squares[invader3CurrentIndex].classList.remove('invader')
-
-    squares[invader3CurrentIndex+=1].classList.add('invader')
-
-    if(invader3CurrentIndex === (squares.length - (width+10))) {
-      clearInterval(invader3Id)
-
+  function moveInvader() {
+    for (let i = 0; i < grid.length; i++) {
+      squares[invadersPosition].classList.remove('invader')
+      squares[invadersPosition+=1].classList.add('invader')
     }
   }
 
-  let invader2Id = null
+  let moveInvaderId = null
+  moveInvaderId = setInterval(moveInvader,500)
+  moveInvader()
 
-  let invader2CurrentIndex = 1
 
-  invader2Id = setInterval(moveInvader2, 1000)
 
-  // move invaders down the grid=========================
 
-  function moveInvader2() {
+  //REMINDER invadersPosition = [0, 1, 2, 3, 4, 5, ....]
 
-    squares[invader2CurrentIndex].classList.remove('invader')
+  // function moveInvader() {
+  //
+  //   squares[invadersPosition].classList.remove('invader')
+  //   squares[invadersPosition+=1].classList.add('invader')
+  //
+  //   if(invadersPosition < width) {
+  //     clearInterval(invaderId)
+  //     squares[invadersPosition].classList.remove('invader')
+  //   }
+  // }
 
-    squares[invader2CurrentIndex+=1].classList.add('invader')
+  // let invaderId = null
 
-    if(invader2CurrentIndex === (squares.length - (width+10))) {
-      clearInterval(invader2Id)
 
-    }
-  }
+  // (function(moveInvader) {
+  //   squares[invadersPosition].classList.remove('invader')
+  //   squares[invadersPosition+=1].classList.add('invader')
+  // })
+  //
+  // invaderId = setInterval(moveInvader, 100)
 
-  let invader1CurrentIndex = 0
 
-  //move invader one div to the right every second================
 
-  let invader1Id = null
 
-  invader1Id = setInterval(moveInvader1, 1000)
+  // let invader3Id = null
+  //
+  // let invader3CurrentIndex = 2
+  //
+  // invader3Id = setInterval(moveInvader3, 1000)
+  //
+  // // move invaders down the grid=========================
+  //
+  // function moveInvader3() {
+  //
+  //   squares[invader3CurrentIndex].classList.remove('invader')
+  //
+  //   squares[invader3CurrentIndex+=1].classList.add('invader')
+  //
+  //   if(invader3CurrentIndex === (squares.length - (width+10))) {
+  //     clearInterval(invader3Id)
+  //
+  //   }
+  // }
+  //
+  // let invader2Id = null
+  //
+  // let invader2CurrentIndex = 1
+  //
+  // invader2Id = setInterval(moveInvader2, 1000)
+  //
+  // // move invaders down the grid=========================
+  //
+  // function moveInvader2() {
+  //
+  //   squares[invader2CurrentIndex].classList.remove('invader')
+  //
+  //   squares[invader2CurrentIndex+=1].classList.add('invader')
+  //
+  //   if(invader2CurrentIndex === (squares.length - (width+10))) {
+  //     clearInterval(invader2Id)
+  //
+  //   }
+  // }
 
-  // move invaders down the grid=========================
-
-  function moveInvader1() {
-
-    squares[invader1CurrentIndex].classList.remove('invader')
-
-    squares[invader1CurrentIndex+=1].classList.add('invader')
-
-    if(invader1CurrentIndex === (squares.length - (width+10))) {
-      clearInterval(invader1Id)
-
-    }
-  }
-
+  // let invader1CurrentIndex = 0
+  //
+  // //move invader one div to the right every second================
+  //
+  // let invader1Id = null
+  //
+  // invader1Id = setInterval(moveInvader1, 1000)
+  //
+  // // move invaders down the grid=========================
+  //
+  // function moveInvader1() {
+  //
+  //   squares[invader1CurrentIndex].classList.remove('invader')
+  //
+  //   squares[invader1CurrentIndex+=1].classList.add('invader')
+  //
+  //   if(invader1CurrentIndex === (squares.length - (width))) {
+  //     clearInterval(invader1Id)
+  //
+  //   }
+  // }
+  //
 
 
 
@@ -178,7 +214,6 @@ document.addEventListener('DOMContentLoaded', () => {
   function fireMissile(e) {
     let missileId = null
     let missileCurrentIndex = turretCurrentIndex
-
     function moveMissile() {
 
       squares[missileCurrentIndex].classList.remove('missile')
@@ -186,7 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if(squares[missileCurrentIndex].classList.contains('invader')) {
         squares[missileCurrentIndex].classList.remove('invader', 'missile')
-        clearInterval(invader1Id)
+        // clearInterval(invader1Id)
         clearInterval(missileId)
         score++
         scoreBoard.textContent = score
