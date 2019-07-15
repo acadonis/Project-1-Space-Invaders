@@ -53,15 +53,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //add Invaders========================================
 
-  // const numberOfInvaders = 10
-  // const invadersPosition = []
-  //
-  // for (let i = 0; i < numberOfInvaders; i++) {
-  //   invadersPosition.push(i)
-  //   squares[i].classList.add('invader')
-  //
-  //   console.log(invaders)
-  // }
+  const numberOfInvaders = 10
+  const invadersPosition = []
+
+  for (let i = 0; i < numberOfInvaders; i++) {
+    invadersPosition.push(i)
+    squares[i].classList.add('invader')
+
+    console.log(invadersPosition)
+  }
 
 
   //move invader one div to the right every second================
@@ -71,30 +71,58 @@ document.addEventListener('DOMContentLoaded', () => {
   // move invaders down the grid=========================
 
 
-  const numberOfInvaders = 10
-  const invadersPosition = []
+  // const numberOfInvaders = 10
+  // const invadersPosition = []
+  // for (let i = 0; i < numberOfInvaders; i++) {
+  //   invadersPosition.push(i)
+  //   squares[invadersPosition[i]].classList.add('invader')
+  // }
+  //
+  // console.log(invadersPosition)
+
+  //for each square with class invader, remove that class, then
 
 
-  function invaders() {
+  // invadersPosition.forEach(arrayItem => {
+  //   const arrayPosition = arrayItem.index
+  // // })
+  // //
+  //
+  // function moveInvader1() {
+  //
+  //   squares[invader1CurrentIndex].classList.remove('invader')
+  //
+  //   squares[invader1CurrentIndex+=1].classList.add('invader')
+  //
+  //   if(invader1CurrentIndex === (squares.length - (width))) {
+  //     clearInterval(invader1Id)
+  //
+  //   }
+  // }
+
+
+  //
+  // invaderId = setInterval(invaders, 1000)
+  //
+  // function invaders() {}
+
+
+  //MIKES SOLUTION
+
+  //   const invadersPosition = [values]
+  //
+  //   for (let i= 0; i.invadersPosition.length; i++) {
+  //     squares[invaderPosition[i]].classList.remove('invader')
+  //     invaderPosition[i]+=1
+  //     squares[invaderPositions[i]].classList.add('invader')
+  //   }
+  // //
 
 
 
-    for (let i = 0; i < numberOfInvaders; i++) {
-      invadersPosition.push(i)
+  // let invaderId = null
 
-      squares[invadersPosition[i]].classList.add('invader')
-      squares[invadersPosition[i]+=1].classList.remove('invader')
-      // squares[i+=1].classList.add('invader')
 
-    //   squares[invadersPosition[i]].classList.remove('invader')
-    //
-    //   squares[invadersPosition[i]+=1].classList.add('invader')
-    }
-  }
-
-  let invaderId = null
-
-  invaderId = setInterval(invaders, 1000)
 
   //REMINDER invadersPosition = [0, 1, 2, 3, 4, 5, ....]
 
@@ -110,14 +138,14 @@ document.addEventListener('DOMContentLoaded', () => {
   // }
 
   // let invaderId = null
-
-
+  //
+  //
   // (function(moveInvader) {
   //   squares[invadersPosition].classList.remove('invader')
   //   squares[invadersPosition+=1].classList.add('invader')
   // })
   //
-  // invaderId = setInterval(moveInvader, 100)
+  // invaderId = setInterval(moveInvader, 1000)
 
 
 
@@ -284,7 +312,7 @@ document.addEventListener('DOMContentLoaded', () => {
   //       moveMissile()
   //       break
   //   }
-  // }
+  // }2
 
 
 
@@ -293,6 +321,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.addEventListener('keyup', fireMissile)
   document.addEventListener('keyup', moveTurret)
-
+  // document.addEventListener('keyup', moveInvaders)
 
 })
+//THIS SHOULD WORK
+//use direction to move them about
+// let direction = 1
+//   //function moveInvaders() {
+// for(let i= 0; i < invaders.length; i++){
+//   squares[invader[i]].classList.remove('invader')
+//   invaders[i] += direction
+//   squares[invader[i]].class.add('invader')
+//   }
