@@ -1,3 +1,5 @@
+
+
 document.addEventListener('DOMContentLoaded', () => {
 
   //variables - some could be global ========================================
@@ -7,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let turretCurrentIndex = null
   const scoreBoard = document.querySelector('.score')
   let score = 0
+
 
   // create grid ============================================================
   for(let i = 0; i < width * width; i++) {
@@ -50,15 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   ]
 
-  //setting direction of invaders
-
-  let direction = 0
-  let rightCounter = 0
-  let leftCounter = 0
-
-  let moveRight = 1
-  let down = width
-  let moveLeft = -1
+  let direction = 1
 
 
   function invaders() {
@@ -76,27 +71,16 @@ document.addEventListener('DOMContentLoaded', () => {
       squares[invadersPosition[i]].classList.add('invader')
     }
 
-    //
 
-    if(rightCounter < 2){
-      direction = moveRight
-      rightCounter++
+    const leftEdge = invadersPosition[0] % width === 0
+    const rightEdge = invadersPosition[invadersPosition.length - 1] % width === width - 1
 
-    }else if (rightCounter === 2) {
-      direction = down
-      rightCounter = 3
-    //
-    }else if (leftCounter < 4) {
-      direction = moveLeft
-      leftCounter ++
-    }else if (leftCounter === 4){
-      direction = down
-      leftCounter = 3
-      rightCounter = 0
-    }
-  }
+    if((leftEdge && direction === -1) || (rightEdge && direction === 1)){
+      direction = width
+    }else if (direction === width) {
+      if (leftEdge) direction = 1
+      else direction = -1
 
-  //need to stop at some point
   const invaderId = setInterval(invaders, 500)
 
   if(squares[turretCurrentIndex].classList.contains('invader', 'turret')) {
@@ -117,10 +101,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         clearInterval(missileId)
 
-        const hit = invadersPosition.indexOf(missileCurrentIndex)
-
-        invadersPosition.splice(hit,1)
-        console.log(invadersPosition)
+        // // const hit = invadersPosition.indexOf(missileCurrentIndex)
+        // //
+        // // invadersPosition.splice(hit,1)
+        // console.log(invadersPosition)
 
         score++
         scoreBoard.textContent = score
