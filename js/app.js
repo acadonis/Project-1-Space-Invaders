@@ -69,8 +69,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     for (let i = 0; i <= invadersPosition.length - 1; i++) {
-      squares[invadersPosition[i]].classList.add('invader')
-      //except for those with property hit
+      //if hitarray index number matches invaders position index number do not apply class to squares
+      if (hitArray.includes(i)){
+        //nothing
+      } else
+        squares[invadersPosition[i]].classList.add('invader')
+      //unless invadersPosition [i] matches entry in hit Array
+
+
     }
 
 
@@ -84,6 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
       else direction = -1
 
     }
+      console.log(invadersPosition)
   }
 
   const invaderId = setInterval(invaders, 1000)
@@ -110,10 +117,10 @@ document.addEventListener('DOMContentLoaded', () => {
         clearInterval(missileId)
         //hit returns the index position of the invader which is hit
         const hit = invadersPosition.indexOf(missileCurrentIndex)
-        console.log(hit)
+
         hitArray.push(hit)
 
-        console.log(hitArray)
+
 
         score++
         scoreBoard.textContent = score
