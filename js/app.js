@@ -133,41 +133,36 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // fire bombs
+  let bombId = null
 
-  //FIRE MISSILE AND COLLISION
   function fireBomb() {
-    let bombId = null
-    let bombCurrentIndex = invadersPosition[]
-    function moveMissile() {
 
-      squares[missileCurrentIndex].classList.remove('missile')
-      squares[missileCurrentIndex-=width].classList.add('missile')
+    const randomIndex = Math.floor(Math.random() * invadersPosition.length)
+    console.log(randomIndex)
+    let bomberIndex = invadersPosition[randomIndex]
+    console.log(bomberIndex)
 
-      if(squares[missileCurrentIndex].classList.contains('invader')) {
-        squares[missileCurrentIndex].classList.remove('invader', 'missile')
+    function moveBomb() {
 
-        clearInterval(missileId)
+      squares[bomberIndex].classList.remove('bomb')
+      squares[bomberIndex+=width].classList.add('bomb')
 
-        const hit = invadersPosition.indexOf(missileCurrentIndex)
+      if(squares[bomberIndex].classList.contains('turret')) {
+        squares[bomberIndex].classList.remove('bomb', 'turret')
 
-        invadersPosition.splice(hit,1)
+        clearInterval(bombId)
 
-        score++
-        scoreBoard.textContent = score
       }
-
-      if(missileCurrentIndex < width) {
-        clearInterval(missileId)
-        squares[missileCurrentIndex].classList.remove('missile')
+      if(bomberIndex < width) {
+        clearInterval(bombId)
+        squares[bomberIndex].classList.remove('bomb')
       }
 
     }
-    switch(e.keyCode) {
-      case 32:
-        missileId = setInterval(moveMissile, 100)
-        break
-    }
+    bombId = setInterval(moveBomb, 300)
   }
+
+const fireBombId = setInterval(fireBomb, 1000)
 
   //event listeners=============================================================
 

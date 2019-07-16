@@ -49,4 +49,10 @@ h1 {
   background-repeat: no-repeat;
   background-position: center; }
 
+.bomb {
+  background-image: url(phones.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center; }
+
 /*# sourceMappingURL=style.css.map */
