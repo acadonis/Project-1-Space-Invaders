@@ -50,11 +50,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const invadersPosition = [
     2,3,4,5,6,7,
     12,13,14,15,16,17
-
   ]
 
-  let direction = 1
+  for (let i = 0; i <= invadersPosition.length - 1; i++) {
+    squares[invadersPosition[i]].classList.add('invader')
+  }
 
+  let direction = 1
 
   function invaders() {
 
@@ -64,7 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     for (let i = 0; i <= invadersPosition.length - 1; i++) {
       invadersPosition[i] += direction
-
     }
 
     for (let i = 0; i <= invadersPosition.length - 1; i++) {
@@ -80,6 +81,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }else if (direction === width) {
       if (leftEdge) direction = 1
       else direction = -1
+
+    }
+  }
 
   const invaderId = setInterval(invaders, 500)
 
@@ -98,12 +102,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if(squares[missileCurrentIndex].classList.contains('invader')) {
         squares[missileCurrentIndex].classList.remove('invader', 'missile')
+        squares[missileCurrentIndex].classList.add('explosion')
+
 
         clearInterval(missileId)
 
-        // // const hit = invadersPosition.indexOf(missileCurrentIndex)
-        // //
-        // // invadersPosition.splice(hit,1)
+        // const hit = invadersPosition.indexOf(missileCurrentIndex)
+        //
+        // invadersPosition.splice(hit,1)
         // console.log(invadersPosition)
 
         score++

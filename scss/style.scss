@@ -39,21 +39,21 @@ h1 {
 }
 
 .turret {
-  background-image: url(dwain.jpeg);
+  background-color: green;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .invader {
-  background-image: url(pint.jpeg);
+  background-color: red;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .missile {
-  background-image: url(phones.jpg);
+  background-color: dodgerblue;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -62,6 +62,20 @@ h1 {
 
 .bomb {
   background-image: url(phones.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.hit {
+  background-color: purple;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.explosion {
+  background-color: yellow;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
