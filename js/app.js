@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let turretCurrentIndex = null
   const scoreBoard = document.querySelector('.score')
   let score = 0
-
+  let hitArray = []
 
   // create grid ============================================================
   for(let i = 0; i < width * width; i++) {
@@ -70,6 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     for (let i = 0; i <= invadersPosition.length - 1; i++) {
       squares[invadersPosition[i]].classList.add('invader')
+      //except for those with property hit
     }
 
 
@@ -85,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  const invaderId = setInterval(invaders, 500)
+  const invaderId = setInterval(invaders, 1000)
 
   if(squares[turretCurrentIndex].classList.contains('invader', 'turret')) {
     clearInterval(invaderId)
@@ -102,17 +103,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if(squares[missileCurrentIndex].classList.contains('invader')) {
         squares[missileCurrentIndex].classList.remove('invader', 'missile')
-        invadersPosition[missileCurrentIndex].classList.add('hit')
 
         squares[missileCurrentIndex].classList.add('explosion')
         setTimeout(() => squares[missileCurrentIndex].classList.remove('explosion'), 250)
 
         clearInterval(missileId)
+        //hit returns the index position of the invader which is hit
+        const hit = invadersPosition.indexOf(missileCurrentIndex)
+        console.log(hit)
+        hitArray.push(hit)
 
-        // const hit = invadersPosition.indexOf(missileCurrentIndex)
-        //
-        // invadersPosition.splice(hit,1)
-        // console.log(invadersPosition)
+        console.log(hitArray)
 
         score++
         scoreBoard.textContent = score
@@ -131,37 +132,38 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // // fire bombs
-  // let bombId = null
-  //
-  // function fireBomb() {
-  //
-  //   const randomIndex = Math.floor(Math.random() * invadersPosition.length)
-  //
-  //   let bomberIndex = invadersPosition[randomIndex]
-  //
-  //
-  //   function moveBomb() {
-  //
-  //     squares[bomberIndex].classList.remove('bomb')
-  //     squares[bomberIndex+=width].classList.add('bomb')
-  //
-  //     if(squares[bomberIndex].classList.contains('turret')) {
-  //       squares[bomberIndex].classList.remove('bomb', 'turret')
-  //
-  //       clearInterval(bombId)
-  //
-  //     }
-  //     if(bomberIndex < width) {
-  //       clearInterval(bombId)
-  //       squares[bomberIndex].classList.remove('bomb')
-  //     }
-  //
-  //   }
-  //   bombId = setInterval(moveBomb, 100)
-//   // }
+  // fire bombs
+//   let bombId = null
+//
+//   function fireBomb() {
+//
+//     const randomIndex = Math.floor(Math.random() * invadersPosition.length)
+//
+//     let bomberIndex = invadersPosition[randomIndex]
+//
+//
+//     function moveBomb() {
+//
+//       squares[bomberIndex].classList.remove('bomb')
+//       squares[bomberIndex+=width].classList.add('bomb')
+//
+//       if(squares[bomberIndex].classList.contains('turret')) {
+//         squares[bomberIndex].classList.remove('bomb', 'turret')
+//
+//         clearInterval(bombId)
+//
+//       }
+//       if(bomberIndex < width) {
+//         clearInterval(bombId)
+//         squares[bomberIndex].classList.remove('bomb')
+//       }
+//
+//     }
+//     bombId = setInterval(moveBomb, 100)
+//   }
 //
 // const fireBombId = setInterval(fireBomb, 1000)
+
   //event listeners=============================================================
 
   document.addEventListener('keyup', fireMissile)
