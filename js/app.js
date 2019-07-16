@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //variables - some could be global ========================================
   const squares = []
-  const width = 10
+  const width = 20
   const grid = document.querySelector('.grid')
   let turretCurrentIndex = null
   const scoreBoard = document.querySelector('.score')
@@ -52,12 +52,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   //add invaders=================================================
-
-  const numberOfInvaders = 8
   const invadersPosition = [
-    0, 1, 2, 3, 4, 5, 6,
-    10,11,12,13,14,15,16,
-    20,21,22,23,24,25,26
+    5,6,7,8,9,10,11,12,13,14,
+    25,26,27,28,29,30,31,32,33,34
+
   ]
 
   //setting direction of
@@ -93,12 +91,53 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   //need to stop at some point
-  let invaderId = setInterval(invaders, 300)
+  const invaderId = setInterval(invaders, 300)
+
+  if(squares[turretCurrentIndex].classList.contains('invader', 'turret')) {
+    clearInterval(invaderId)
+  }
 
 //FIRE MISSILE AND COLLISION
   function fireMissile(e) {
     let missileId = null
     let missileCurrentIndex = turretCurrentIndex
+    function moveMissile() {
+
+      squares[missileCurrentIndex].classList.remove('missile')
+      squares[missileCurrentIndex-=width].classList.add('missile')
+
+      if(squares[missileCurrentIndex].classList.contains('invader')) {
+        squares[missileCurrentIndex].classList.remove('invader', 'missile')
+
+        clearInterval(missileId)
+
+        const hit = invadersPosition.indexOf(missileCurrentIndex)
+
+        invadersPosition.splice(hit,1)
+
+        score++
+        scoreBoard.textContent = score
+      }
+
+      if(missileCurrentIndex < width) {
+        clearInterval(missileId)
+        squares[missileCurrentIndex].classList.remove('missile')
+      }
+
+    }
+    switch(e.keyCode) {
+      case 32:
+        missileId = setInterval(moveMissile, 100)
+        break
+    }
+  }
+
+  // fire bombs
+
+  //FIRE MISSILE AND COLLISION
+  function fireBomb() {
+    let bombId = null
+    let bombCurrentIndex = invadersPosition[]
     function moveMissile() {
 
       squares[missileCurrentIndex].classList.remove('missile')

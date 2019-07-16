@@ -27,8 +27,8 @@ h1 {
   flex-wrap: wrap; }
 
 .grid div {
-  width: calc(100% / 10);
-  height: calc(100% / 10);
+  width: calc(100% / 20);
+  height: calc(100% / 20);
   border: 1px dashed black; }
 
 .turret {
