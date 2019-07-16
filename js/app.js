@@ -102,8 +102,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if(squares[missileCurrentIndex].classList.contains('invader')) {
         squares[missileCurrentIndex].classList.remove('invader', 'missile')
-        squares[missileCurrentIndex].classList.add('explosion')
+        invadersPosition[missileCurrentIndex].classList.add('hit')
 
+        squares[missileCurrentIndex].classList.add('explosion')
+        setTimeout(() => squares[missileCurrentIndex].classList.remove('explosion'), 250)
 
         clearInterval(missileId)
 
