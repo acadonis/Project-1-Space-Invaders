@@ -1,22 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
-//const squares contains the divs created by the squares push squares
+
+
+
+  //variables - some could be global ========================================
   const squares = []
-  const width = 20
+  const width = 10
   const grid = document.querySelector('.grid')
   let turretCurrentIndex = null
   const scoreBoard = document.querySelector('.score')
   let score = 0
 
-  //for use in loop to generate invader from position
-  //
-  //
 
-  //timerIDs===============================================================
+
+  //timerIDs=================================================================
 
 
 
   // create grid ============================================================
-  //loops round the number of times equalling size of grid 5 x 5
   for(let i = 0; i < width * width; i++) {
     //sets variable square to create the element div
     const square = document.createElement('div')
@@ -29,11 +29,11 @@ document.addEventListener('DOMContentLoaded', () => {
   turretCurrentIndex = squares.length-1
 
 
-  // add turret===================================================
+  // add turret==============================================================
 
   squares[squares.length-1].classList.add('turret')
 
-  //move turret ==================================================
+  //move turret =============================================================
 
   function moveTurret(e) {
 
@@ -51,121 +51,51 @@ document.addEventListener('DOMContentLoaded', () => {
     squares[turretCurrentIndex].classList.add('turret')
   }
 
-  //add Invaders========================================
+  //add invaders=================================================
 
-  const numberOfInvaders = 15
-  const invadersPosition = []
+  const numberOfInvaders = 8
+  const invadersPosition = [
+    0, 1, 2, 3, 4, 5, 6,
+    10,11,12,13,14,15,16,
+    20,21,22,23,24,25,26
+  ]
 
-  for (let i = 0; i < numberOfInvaders; i++) {
-    squares[i+2].classList.add('invader')
-    invadersPosition.push(i+2)
-    // // console.log(invadersPosition[5])
+  //setting direction of
 
-  }
-
-  //IMPORTANT!!!! need to -1 from length of array otherwise it tries to target position one after end of array (e.g. 20 instead of 19 and fucks up)
-
-
-
-
-  // function moveInvader(){
-  //
-  //   for (let i= 0; i <= invadersPosition.length - 1; i++) {
-  //     squares[invadersPosition[i]].classList.remove('invader')
-  //     invadersPosition[i]+=1
-  //     squares[invadersPosition[i]].classList.add('invader')
-  //   }
-  // }
-  //
-  // setInterval(moveInvader, 1000)
-
-  //
-  // function invaders() {
-  //   for (let i= 0; i <= invadersPosition.length - 1; i++) {
-  //     squares[invadersPosition[i]].classList.remove('invader')
-  //     invadersPosition[i]+=1
-  //     squares[invadersPosition[i]].classList.add('invader')
-  //   }
-  // }
-  //
-  // let invaderId = null
-  //
-  // invaderId = setInterval(invaders, 1000)
+  let direction = 1
 
   function invaders() {
+
     for (let i = 0; i <= invadersPosition.length - 1; i++) {
       squares[invadersPosition[i]].classList.remove('invader')
-      invadersPosition[i]+=1
     }
+
+    for (let i = 0; i <= invadersPosition.length - 1; i++) {
+      invadersPosition[i] += direction
+
+    }
+
     for (let i = 0; i <= invadersPosition.length - 1; i++) {
       squares[invadersPosition[i]].classList.add('invader')
     }
+
+    const rightSide = invadersPosition[invadersPosition.length - 1] % width === width - 1
+    const leftSide = invadersPosition[0] % width === 0
+
+    if((rightSide && direction === 1) || (leftSide && direction === -1)){
+      direction = width
+    } else if (direction === width) {
+      if (leftSide) direction = 1
+      else direction = -1
+    }
+
   }
 
-  let invaderId = setInterval(invaders, 1000)
 
+  //need to stop at some point
+  let invaderId = setInterval(invaders, 300)
 
-
-
-
-
-
-
-
-
-  //REMINDER invadersPosition = [0, 1, 2, 3, 4, 5, ....]
-
-  // function moveInvader() {
-  //
-  //   squares[invadersPosition].classList.remove('invader')
-  //   squares[invadersPosition+=1].classList.add('invader')
-  //
-  //   if(invadersPosition < width) {
-  //     clearInterval(invaderId)
-  //     squares[invadersPosition].classList.remove('invader')
-  //   }
-  // }
-
-  // let invaderId = null
-  //
-  //
-  // (function(moveInvader) {
-  //   squares[invadersPosition].classList.remove('invader')
-  //   squares[invadersPosition+=1].classList.add('invader')
-  // })
-  //
-
-
-
-
-
-  // let invader1CurrentIndex = 0
-  //
-  // //move invader one div to the right every second================
-  //
-  // let invader1Id = null
-  //
-  // invader1Id = setInterval(moveInvader1, 1000)
-  //
-  // // move invaders down the grid=========================
-  //
-  // function moveInvader1() {
-  //
-  //   squares[invader1CurrentIndex].classList.remove('invader')
-  //
-  //   squares[invader1CurrentIndex+=1].classList.add('invader')
-  //
-  //   if(invader1CurrentIndex === (squares.length - (width))) {
-  //     clearInterval(invader1Id)
-  //
-  //   }
-  // }
-  //
-
-
-
-
-  //WORKING!!!!
+//FIRE MISSILE AND COLLISION
   function fireMissile(e) {
     let missileId = null
     let missileCurrentIndex = turretCurrentIndex
@@ -176,10 +106,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if(squares[missileCurrentIndex].classList.contains('invader')) {
         squares[missileCurrentIndex].classList.remove('invader', 'missile')
-        //need to remove from invader array here as well
-        // clearInterval(invader1Id)
-        clearInterval(missileId)
 
+        clearInterval(missileId)
 
         const hit = invadersPosition.indexOf(missileCurrentIndex)
 
@@ -202,91 +130,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  //if(e.key === 'ArrowUp') {}
-
-  // //WORKING!!!!
-  // function fireMissile(e) {
-  //   let missileId = null
-  //   let missileCurrentIndex = turretCurrentIndex
-  //
-  //   function moveMissile() {
-  //
-  //     squares[missileCurrentIndex].classList.remove('missile')
-  //     squares[missileCurrentIndex-=width].classList.add('missile')
-  //
-  //     if(missileCurrentIndex < width) {
-  //       clearInterval(missileId)
-  //       squares[missileCurrentIndex].classList.remove('missile')
-  //     }
-  //
-  //   }
-  //   switch(e.keyCode) {
-  //     case 32:
-  //       missileId = setInterval(moveMissile, 100)
-  //       moveMissile()
-  //       break
-  //   }
-  // }2
-
-
-
-
-
+  //event listeners=============================================================
 
   document.addEventListener('keyup', fireMissile)
-  document.addEventListener('keyup', moveTurret)
-  // document.addEventListener('keyup', moveInvaders)
+  document.addEventListener('keydown', moveTurret)
 
 })
-//THIS SHOULD WORK
-//use direction to move them about
-// let direction = 1
-//   //function moveInvaders() {
-// for(let i= 0; i < invaders.length; i++){
-//   squares[invader[i]].classList.remove('invader')
-//   invaders[i] += direction
-//   squares[invader[i]].class.add('invader')
-//   }
-
-
-// function fire missile ===================================================================
-
-// function fireMissile(e) {
-//
-//   switch(e.keyCode) {
-//     case 32:
-//       squares[turretCurrentIndex-width].classList.add('missile')
-//
-//       break
-//   }
-// }
-//
-//
-//
-// document.addEventListener('keyup', fireMissile)
-
-
-// function to move missile =============================
-
-
-//
-// let missileId = null
-//
-// missileId = setInterval(moveMissile, 500)
-//
-// let missileCurrentIndex = turretCurrentIndex
-//
-// function moveMissile() {
-// //
-//   squares[missileCurrentIndex].classList.remove('missile')
-//   squares[missileCurrentIndex-=width].classList.add('missile')
-//
-//
-//   if(missileCurrentIndex < 10) {
-//     clearInterval(missileId)
-//     squares[missileCurrentIndex].classList.remove('missile')
-//   }
-//
-// }
-
-//fire missile and move missile jammed together and working.
