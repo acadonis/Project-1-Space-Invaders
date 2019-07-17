@@ -194,7 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         clearInterval(bombId)
         // clearInterval(fireBombId)
-
+        stop()
       }
       if(bombIndex > (squares.length - (width + 1))) {
         clearInterval(bombId)
@@ -207,6 +207,20 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 const fireBombId = setInterval(fireBomb, 1000)
+
+// function stop game
+
+  function stop(){
+    clearInterval(fireBombId)
+    clearInterval(invaderId)
+
+    function endScreen(){
+      //game over screen
+    }
+
+}
+
+
 
   //event listeners=============================================================
 
