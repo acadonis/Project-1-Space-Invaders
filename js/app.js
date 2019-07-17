@@ -6,18 +6,14 @@ document.addEventListener('DOMContentLoaded', () => {
   let width = 10
   let grid = document.querySelector('.grid')
   let turretCurrentIndex = null
-  const scoreBoard = document.querySelector('.score')
+  let scoreBoard = document.querySelector('.score')
   let score = 0
   let hitArray = []
-  const resetButton = document.querySelector('.reset')
+  let resetButton = document.querySelector('.reset')
 
+
+  //start game function=========================================
   function game(){
-  //variables - some could be global ========================================
-
-
-
-
-    //start game function=========================================
 
     // create grid ============================================================
     for(let i = 0; i < width * width; i++) {
@@ -44,10 +40,12 @@ document.addEventListener('DOMContentLoaded', () => {
       switch(e.keyCode) {
         case 37:
           if(turretCurrentIndex % width !== 0) turretCurrentIndex -= 1
+
           break
 
         case 39:
           if(turretCurrentIndex % width < width - 1) turretCurrentIndex += 1
+
           break
       }
       squares[turretCurrentIndex].classList.add('turret')
@@ -211,15 +209,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
       function getConfirmation(){
         var retVal = confirm('Do you want to play again?')
-        if(retVal === true){
+
+
+        function deleteDivs(){
+          var el = document.querySelector('.grid')
+          while ( el.firstChild ) el.removeChild( el.firstChild )
+
+
+
+          // var e = document.querySelector('.game')
+          // console.log(e)
+          // var child = e.lastElementChild
+          // console.log(child)
+          // while(child) {
+          //   e.removeChild(child)
+          //   child = e.lastElementChild
+          // }
+          // console.log(e)
+          // console.log(child)
+        }
+
+        if(retVal){
+
+          deleteDivs()
           squares = []
           width = 10
           turretCurrentIndex = null
           score = 0
           hitArray = []
-          grid.removeChild(square)
+          scoreBoard = document.querySelector('.score')
+          grid = document.querySelector('.grid')
+          resetButton = document.querySelector('.reset')
           game()
-          return true
         }else {
           //return to main menu
           return false
@@ -228,9 +249,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     }
 
+    // let
+    // let turretCurrentIndex = null
+
+    // let score = 0
+    // let hitArray = []
+    // let
+
+
     // listeners===============================================
 
     document.addEventListener('keyup', fireMissile)
+
 
     document.addEventListener('keydown', moveTurret)
 
