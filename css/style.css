@@ -67,4 +67,10 @@ h1 {
   background-repeat: no-repeat;
   background-position: center; }
 
+.turretExplosion {
+  background-color: orange;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center; }
+
 /*# sourceMappingURL=style.css.map */
