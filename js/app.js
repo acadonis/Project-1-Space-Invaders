@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
           break
       }
     }
-
+    //to something wrong with randomIndex generation with more than one bomb on screen
     //fire bombs ===========================================
     let bombId = null
 
@@ -201,6 +201,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         if(bombIndex > (squares.length - (width + 1))) {
           clearInterval(bombId)
+          clearInterval(fireBomb)
           squares[bombIndex].classList.remove('bomb')
         }
 
@@ -208,21 +209,21 @@ document.addEventListener('DOMContentLoaded', () => {
       bombId = setInterval(moveBomb, 100)
     }
 
-    const fireBombId = setInterval(fireBomb, 1000)
+    const fireBombId = setInterval(fireBomb, 500)
 
     // function stop game ======================================
 
-    // function stop(){
-    //   clearInterval(bombId)
-    //   clearInterval(fireBombId)
-    //   clearInterval(invaderId)
+    function stop(){
+      clearInterval(bombId)
+      clearInterval(fireBombId)
+      clearInterval(invaderId)
     //   alert('Game over')
     //   getConfirmation()
       // function endScreen(){
       //   //game over screen
-      // }
+    }
 
-      // play again prompt function
+    // play again prompt function
 
     //   function getConfirmation(){
     //     var retVal = confirm('Do you want to play again?')
