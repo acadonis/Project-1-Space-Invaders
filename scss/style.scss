@@ -36,7 +36,7 @@ h1 {
 .grid div {
   width: calc(100% / 10);
   height: calc(100% / 10);
-  border: 1px dashed black;
+
 }
 
 .turret {
@@ -47,7 +47,7 @@ h1 {
 }
 
 .invader {
-  background-image: url(alienContrast.png);
+  background-image: url(invaderGreen.png);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -62,7 +62,7 @@ h1 {
 }
 
 .bomb {
-  background-color: red;
+  background-image: url(bombPurple.png);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -83,8 +83,23 @@ h1 {
 }
 
 .turretExplosion {
-  background-color: orange;
+  background-image: url(stars.png);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.turretExplosionTop {
+  background-image: url(turretExpTop.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+
+.turretExplosionBot {
+  background-image: url(turretExpBot.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top;
+
 }

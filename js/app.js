@@ -40,10 +40,10 @@ document.addEventListener('DOMContentLoaded', () => {
       switch(e.keyCode) {
         case 37:
           if(turretCurrentIndex % width !== 0) {
-          console.log(turretCurrentIndex)
-          turretCurrentIndex -= 1
+            console.log(turretCurrentIndex)
+            turretCurrentIndex -= 1
 
-        }
+          }
 
           break
 
@@ -185,9 +185,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
         if(squares[bombIndex].classList.contains('turret')) {
+
           squares[bombIndex].classList.remove('bomb', 'turret')
-          squares[bombIndex].classList.add('turretExplosion')
-          setTimeout(() => squares[bombIndex].classList.remove('turretExplosion'), 250)
+
+          squares[bombIndex].classList.add('turretExplosionBot')
+
+          setTimeout(() => squares[bombIndex].classList.remove('turretExplosionBot'), 250)
+
+          squares[bombIndex-width].classList.add('turretExplosionTop')
+
+          setTimeout(() => squares[bombIndex-width].classList.remove('turretExplosionTop'), 250)
 
           clearInterval(bombId)
           stop()
@@ -211,12 +218,12 @@ document.addEventListener('DOMContentLoaded', () => {
     //   clearInterval(invaderId)
     //   alert('Game over')
     //   getConfirmation()
-    //   // function endScreen(){
-    //   //   //game over screen
-    //   // }
-    //
-    //   // play again prompt function
-    //
+      // function endScreen(){
+      //   //game over screen
+      // }
+
+      // play again prompt function
+
     //   function getConfirmation(){
     //     var retVal = confirm('Do you want to play again?')
     //
