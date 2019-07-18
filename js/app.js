@@ -39,7 +39,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
       switch(e.keyCode) {
         case 37:
-          if(turretCurrentIndex % width !== 0) turretCurrentIndex -= 1
+          if(turretCurrentIndex % width !== 0) {
+          console.log(turretCurrentIndex)
+          turretCurrentIndex -= 1
+
+        }
 
           break
 
@@ -171,7 +175,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         squares[bombIndex].classList.remove('bomb')
 
-        squares[bombIndex+=width].classList.add('bomb')
+        squares[bombIndex+=width]
+
+        if(squares[bombIndex].classList.contains('invader')){
+          //do nothing
+        }else {
+          squares[bombIndex].classList.add('bomb')
+        }
 
 
         if(squares[bombIndex].classList.contains('turret')) {
@@ -195,59 +205,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // function stop game ======================================
 
-    function stop(){
-      clearInterval(bombId)
-      clearInterval(fireBombId)
-      clearInterval(invaderId)
-      alert('Game over')
-      getConfirmation()
-      // function endScreen(){
-      //   //game over screen
-      // }
-
-      // play again prompt function
-
-      function getConfirmation(){
-        var retVal = confirm('Do you want to play again?')
-
-
-        function deleteDivs(){
-          var el = document.querySelector('.grid')
-          while ( el.firstChild ) el.removeChild( el.firstChild )
-
-
-
-          // var e = document.querySelector('.game')
-          // console.log(e)
-          // var child = e.lastElementChild
-          // console.log(child)
-          // while(child) {
-          //   e.removeChild(child)
-          //   child = e.lastElementChild
-          // }
-          // console.log(e)
-          // console.log(child)
-        }
-
-        if(retVal){
-
-          deleteDivs()
-          squares = []
-          width = 10
-          turretCurrentIndex = null
-          score = 0
-          hitArray = []
-          scoreBoard = document.querySelector('.score')
-          grid = document.querySelector('.grid')
-          resetButton = document.querySelector('.reset')
-          game()
-        }else {
-          //return to main menu
-          return false
-        }
-      }
-
-    }
+    // function stop(){
+    //   clearInterval(bombId)
+    //   clearInterval(fireBombId)
+    //   clearInterval(invaderId)
+    //   alert('Game over')
+    //   getConfirmation()
+    //   // function endScreen(){
+    //   //   //game over screen
+    //   // }
+    //
+    //   // play again prompt function
+    //
+    //   function getConfirmation(){
+    //     var retVal = confirm('Do you want to play again?')
+    //
+    //
+    //     function deleteDivs(){
+    //       var el = document.querySelector('.grid')
+    //       while (el.firstChild) el.removeChild(el.firstChild)
+    //     }
+    //
+    //     if(retVal){
+    //
+    //       deleteDivs()
+    //       squares = []
+    //       width = 10
+    //       turretCurrentIndex = null
+    //       score = 0
+    //       hitArray = []
+    //       scoreBoard = document.querySelector('.score')
+    //       grid = document.querySelector('.grid')
+    //       resetButton = document.querySelector('.reset')
+    //       game()
+    //     }else {
+    //       //return to main menu
+    //       return false
+    //     }
+    //   }
+    //
+    // }
 
     // let
     // let turretCurrentIndex = null
@@ -264,7 +261,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.addEventListener('keydown', moveTurret)
 
-  //end of game function
+    //end of game function
+    //BREAK DOWN GAME FUNCTION!!!!
+
   }
   game()
 

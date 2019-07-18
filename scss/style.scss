@@ -5,6 +5,7 @@
 body {
   margin: 0;
   font-size: 24px;
+  background-color: #000000
 }
 
 header {
@@ -39,21 +40,21 @@ h1 {
 }
 
 .turret {
-  background-color: green;
+  background-image: url(turret.png);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .invader {
-  background-color: red;
+  background-image: url(alienContrast.png);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .missile {
-  background-color: dodgerblue;
+  background-image: url(laserBlue.png);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -61,7 +62,7 @@ h1 {
 }
 
 .bomb {
-  background-color: grey;
+  background-color: red;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
