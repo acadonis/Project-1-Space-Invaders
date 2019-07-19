@@ -47,7 +47,7 @@ p {
   height: calc(100% / 10); }
 
 .turret {
-  background-image: url(/turret.png);
+  background-image: url(turret.png);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center; }
