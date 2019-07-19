@@ -189,12 +189,12 @@ document.addEventListener('DOMContentLoaded', () => {
           squares[bombIndex].classList.remove('bomb', 'turret')
 
           squares[bombIndex].classList.add('turretExplosionBot')
-
-          setTimeout(() => squares[bombIndex].classList.remove('turretExplosionBot'), 250)
+          //
+          // setTimeout(() => squares[bombIndex].classList.remove('turretExplosionBot'), 250)
 
           squares[bombIndex-width].classList.add('turretExplosionTop')
 
-          setTimeout(() => squares[bombIndex-width].classList.remove('turretExplosionTop'), 250)
+          // setTimeout(() => squares[bombIndex-width].classList.remove('turretExplosionTop'), 250)
 
           clearInterval(bombId)
           stop()
@@ -209,7 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
       bombId = setInterval(moveBomb, 100)
     }
 
-    const fireBombId = setInterval(fireBomb, 500)
+    const fireBombId = setInterval(fireBomb, 1000)
 
     // function stop game ======================================
 
@@ -265,7 +265,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // listeners===============================================
 
     document.addEventListener('keyup', fireMissile)
-
 
     document.addEventListener('keydown', moveTurret)
 
