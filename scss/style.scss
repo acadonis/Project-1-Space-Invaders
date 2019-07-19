@@ -5,21 +5,11 @@
 body {
   margin: 0;
   font-size: 24px;
-<<<<<<< HEAD
-=======
   background-color: #000000
->>>>>>> master
 }
 
 header {
   display: flex;
-<<<<<<< HEAD
-  justify-content: space-between;
-  border-bottom: 2px solid;
-  padding: 10px 0;
-}
-
-=======
   justify-content: center;
   border-bottom: 2px solid;
   padding: 10px 0;
@@ -64,15 +54,6 @@ p {
 }
 
 .grid div {
-<<<<<<< HEAD
-  width: calc(100% / 6);
-  height: calc(100% / 6);
-  border: 2px dashed black;
-}
-
-.turret {
-  background-image: url(dwain.jpeg);
-=======
   width: calc(100% / 10);
   height: calc(100% / 10);
 
@@ -80,36 +61,26 @@ p {
 
 .turret {
   background-image: url(turret.png);
->>>>>>> master
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .invader {
-<<<<<<< HEAD
-  background-image: url(pint.jpeg);
-=======
   background-image: url(invaderGreen.png);
->>>>>>> master
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .missile {
-<<<<<<< HEAD
-  background-image: url(phones.jpg);
-=======
+
   background-image: url(laserBlue.png);
->>>>>>> master
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 
 }
-<<<<<<< HEAD
-=======
 
 .bomb {
   background-image: url(bombPurple.png);
@@ -162,4 +133,3 @@ font-family: 'Darker Grotesque', sans-serif;
 font-family: 'Poiret One', cursive;
 font-family: 'Julius Sans One', sans-serif;
 font-family: 'Codystar', cursive;*/
->>>>>>> master
