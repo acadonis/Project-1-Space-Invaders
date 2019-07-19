@@ -217,49 +217,43 @@ document.addEventListener('DOMContentLoaded', () => {
       clearInterval(bombId)
       clearInterval(fireBombId)
       clearInterval(invaderId)
-    //   alert('Game over')
-    //   getConfirmation()
-      // function endScreen(){
-      //   //game over screen
+      alert('Game over')
+      getConfirmation()
+      function endScreen(){
+        //game over screen
     }
 
     // play again prompt function
 
-    //   function getConfirmation(){
-    //     var retVal = confirm('Do you want to play again?')
-    //
-    //
-    //     function deleteDivs(){
-    //       var el = document.querySelector('.grid')
-    //       while (el.firstChild) el.removeChild(el.firstChild)
-    //     }
-    //
-    //     if(retVal){
-    //
-    //       deleteDivs()
-    //       squares = []
-    //       width = 10
-    //       turretCurrentIndex = null
-    //       score = 0
-    //       hitArray = []
-    //       scoreBoard = document.querySelector('.score')
-    //       grid = document.querySelector('.grid')
-    //       resetButton = document.querySelector('.reset')
-    //       game()
-    //     }else {
-    //       //return to main menu
-    //       return false
-    //     }
-    //   }
-    //
-    // }
+      function getConfirmation(){
+        var retVal = confirm('Do you want to play again?')
 
-    // let
-    // let turretCurrentIndex = null
 
-    // let score = 0
-    // let hitArray = []
-    // let
+        function deleteDivs(){
+          var el = document.querySelector('.grid')
+          while (el.firstChild) el.removeChild(el.firstChild)
+        }
+
+        if(retVal){
+
+          deleteDivs()
+          squares = []
+          width = 10
+          turretCurrentIndex = null
+          score = 0
+          hitArray = []
+          scoreBoard = document.querySelector('.score')
+          grid = document.querySelector('.grid')
+          resetButton = document.querySelector('.reset')
+          game()
+        }else {
+          //return to main menu
+          return false
+        }
+      }
+
+    }
+
 
 
     // listeners===============================================
