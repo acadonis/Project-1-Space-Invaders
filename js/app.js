@@ -40,15 +40,15 @@ document.addEventListener('DOMContentLoaded', () => {
       switch(e.keyCode) {
         case 37:
           if(turretCurrentIndex % width !== 0) {
-            console.log(turretCurrentIndex)
             turretCurrentIndex -= 1
-
           }
 
           break
 
         case 39:
-          if(turretCurrentIndex % width < width - 1) turretCurrentIndex += 1
+          if(turretCurrentIndex % width < width - 1) {
+            turretCurrentIndex += 1
+          }
 
           break
       }
@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     }
 
-    const invaderId = setInterval(invaders, 1000)
+    const invaderId = setInterval(invaders, 500)
 
     //FIRE MISSILE AND COLLISION ====================================
     function fireMissile(e) {
