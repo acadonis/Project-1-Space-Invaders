@@ -1,8 +1,6 @@
-# space-invaders
+GA Project 1: Space Invaders 
 
-The READMEs should include:
-
-○ Link to your project
+Link on GitHub Pages 
 
 https://acadonis.github.io/space-invaders/
 
