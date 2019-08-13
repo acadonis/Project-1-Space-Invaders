@@ -1,26 +1,26 @@
-GA Project 1: Space Invaders 
+# GA Project 1: Space Invaders 
 
-Link on GitHub Pages 
+### Link
 
-https://acadonis.github.io/space-invaders/
+[Space Invaders](https://acadonis.github.io/space-invaders/)
 
-Brief
+### Brief
 
 I was tasked to create a a Space Invaders game, with the ability to clear a single wave of aliens and display a player's score at the end of the game as the MVP.
 
 Additional suggested features included responsive design, increasing difficulty levels and a persistent leaderboard.
 
-Overview & concept of the project
+### Overview & concept of the project
 
 From the outset I wanted to ensure that the aliens presented a legitimate threat to the player, forcing them to constantly balance the risks of attack and defense. As such I wanted the code to allow for a fast paced game, with both the turret firing and aliens' bombs moving at speed and requiring good reactions on the part of the player.
 
-Technologies used
+### Technologies used
 
 HTML5, CSS 3, ES6, SASS, Git, Github
 
-○ Approach taken - Thought process & methods of producing it
+### Approach taken - Thought process & methods of producing it
 
-My first step was to produce a Trello board with high level tasks, to be broken down at a later stage once I had identified the specific problems involved with each. [Screenshot]
+My first step was to produce a Trello board with high level tasks, to be broken down at a later stage once I had identified the specific problems involved with each. 
 
 The game appeared to lend itself to a grid based layout, and this was the initial approach I took. Once this concept was validated, I focused on the turret and firing mechanics to establish these early on, as I felt this could create a number of blockers due to multiple intervals and potential "run off" from the grid.
 
