@@ -18,7 +18,7 @@ From the outset I wanted to ensure that the aliens presented a legitimate threat
 
 HTML5, CSS 3, ES6, SASS, Git, Github
 
-### Approach taken - Thought process & methods of producing it
+### Approach taken
 
 My first step was to produce a Trello board with high level tasks, to be broken down at a later stage once I had identified the specific problems involved with each. 
 
