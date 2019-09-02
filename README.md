@@ -4,6 +4,8 @@
 
 [Space Invaders](https://acadonis.github.io/space-invaders/)
 
+### Deployment
+
 ### Brief
 
 I was tasked to create a a Space Invaders game, with the ability to clear a single wave of aliens and display a player's score at the end of the game as the MVP.
