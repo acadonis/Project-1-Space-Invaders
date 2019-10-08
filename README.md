@@ -4,7 +4,11 @@
 
 [Space Invaders](https://acadonis.github.io/space-invaders/)
 
-### Deployment
+### Installation
+
+Fork the repository from github
+Open the index.hmtl
+Shoot some invaders! (refresh when you want a new game :wink:)
 
 ### Brief
 
@@ -12,13 +16,17 @@ I was tasked to create a a Space Invaders game, with the ability to clear a sing
 
 Additional suggested features included responsive design, increasing difficulty levels and a persistent leaderboard.
 
+### Timeframe
+
+7 days
+
 ### Overview & concept of the project
 
 From the outset I wanted to ensure that the aliens presented a legitimate threat to the player, forcing them to constantly balance the risks of attack and defense. As such I wanted the code to allow for a fast paced game, with both the turret firing and aliens' bombs moving at speed and requiring good reactions on the part of the player.
 
 ### Technologies used
 
-HTML5, CSS 3, ES6, SASS, Git, Github
+JavaScript ES6, HTML5, CSS3, SASS, Git, Github
 
 ### Approach taken
 
@@ -89,7 +97,6 @@ My styling preferences lean strongly towards the simple application of strong bo
 * Game over screen
 
 To achieve the above, a refactoring exercise on the existing code needs to be undertaken, especially pulling out nested functions and ensuring these are only being called when required. 
-
 
 ### Learning points (tech & soft skills)
 
