@@ -6,8 +6,10 @@
 
 ### Installation
 
-Fork the repository from github
-Open the index.hmtl
+Fork the repository from github.
+
+Open the index.html
+
 Shoot some invaders! (refresh when you want a new game :wink:)
 
 ### Brief
