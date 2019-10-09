@@ -42,6 +42,8 @@ The game appeared to lend itself to a grid based layout, and this was the initia
 
 The turret and laster mechanics did not prove as difficult as expected, which then let to the core mechanics of the alien block movement. This proved far more challenging then I had presumed; especially once collision and bomb dropping were added while trying to maintain the overall cohesion of the alien's position on the grid and relative to each other. A particular challenge was to ensure that destroyed aliens did not continue to drop bombs, which was solved with the following code:
 
+```Javascript
+
     function fireBomb() {
 
     const notHit = []
@@ -53,6 +55,7 @@ The turret and laster mechanics did not prove as difficult as expected, which th
     const randomIndex = notHit[Math.floor(Math.random() * notHit.length)]
 
     let bombIndex = invadersPosition[randomIndex]
+```
 
 The overall solution to the movement mechanics of the aliens, using multiple arrays with relative positioning to the grid and applying / disapplying classes as appropriate, was arrived at after several other attempts using a single array and splicing elements from this. 
 
