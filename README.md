@@ -6,7 +6,9 @@
 
 ### Installation
 
-Fork the repository from github.
+Fork the repository
+
+Clone the repository down to your local system
 
 Open the index.html
 
