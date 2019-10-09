@@ -10,7 +10,11 @@ Fork the repository from github.
 
 Open the index.html
 
-Shoot some invaders! (refresh when you want a new game :wink:)
+Shoot some invaders! 
+
+### Controls
+
+Arrow keys to move left and right, spacebar to shoot. Control R to start a new game :wink:
 
 ### Brief
 
@@ -56,14 +60,50 @@ These other attempts led to a host of issues which required a rethink on the app
 
 ### Styling
 
-My styling preferences lean strongly towards the simple application of strong bold, colours. With the 80s heritage of the original game, I chose to give the originally styling a twist with a neon theme and geometric imagery. The font used is [font], with a colour palette of [ colors linked in ]
+My styling preferences lean strongly towards the simple application of strong bold, colours. With the 80s heritage of the original game, I chose to give the originally styling a twist with a neon theme and geometric imagery. The font used is [Poiret One](https://fonts.google.com/specimen/Poiret+One).
 
-### Snippets of your code and screenshots of your project
+### Further code snippets and screenshots
 
-[Choose some code = turret firing mechanism]
+The intervals on the turret laser allow for multiple instances being on screen at the same time, for fast shooting:
 
-[another bit of code]
+```Javascript
+function fireMissile(e) {
+    let missileId = null
+    let missileCurrentIndex = turretCurrentIndex
+    function moveMissile() {
 
+      squares[missileCurrentIndex].classList.remove('missile')
+
+      squares[missileCurrentIndex-=width].classList.add('missile')
+
+      if(squares[missileCurrentIndex].classList.contains('invader')) {
+        squares[missileCurrentIndex].classList.remove('invader', 'missile')
+
+        squares[missileCurrentIndex].classList.add('explosion')
+        setTimeout(() => squares[missileCurrentIndex].classList.remove('explosion'), 250)
+
+        clearInterval(missileId)
+
+        const hit = invadersPosition.indexOf(missileCurrentIndex)
+        hitArray.push(hit)
+
+        score++
+        scoreBoard.textContent = score
+      }
+
+      if(missileCurrentIndex < width) {
+        clearInterval(missileId)
+        setTimeout(() => squares[missileCurrentIndex].classList.remove('missile'), 100)
+      }
+
+    }
+    switch(e.keyCode) {
+      case 32:
+        missileId = setInterval(moveMissile, 100)
+        break
+    }
+  }
+```
 
 ![Space Invaders](./readme/spaceinvaders.gif)
 
