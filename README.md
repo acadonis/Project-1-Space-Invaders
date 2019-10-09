@@ -14,7 +14,7 @@ Shoot some invaders!
 
 ### Controls
 
-Arrow keys to move left and right, spacebar to shoot. Control R to start a new game :wink:
+Arrow keys to move left and right, spacebar to shoot. Command R to start a new game :wink:
 
 ### Brief
 
