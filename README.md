@@ -1,6 +1,6 @@
 # GA Project 1: Space Invaders 
 
-![Space Invaders](./readme/spaceinvaders.jpeg)
+![Space Invaders](./readme/spaceinvaders.jpg)
 
 ### Link
 
