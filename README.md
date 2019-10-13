@@ -134,7 +134,7 @@ function fireMissile(e) {
 
 * An early attempt to have a scalable grid, based on the width variable, was a red herring which consumed too much time when MVP had still not been met. 
 
-* Destroying all the aliens or the turret being hit by a bomb does not fully stop the game code; this and a reset function to play again have proved challenging. 
+* Destroying all the aliens or the turret being hit by a bomb does not fully stop the game code; this and a reset function to play again are future additions to the code. 
 
 ### Future features
 
