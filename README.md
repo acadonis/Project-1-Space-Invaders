@@ -147,14 +147,14 @@ function fireMissile(e) {
 
 To achieve the above, a refactoring exercise on the existing code needs to be undertaken, especially pulling out nested functions and ensuring these are only being called when required. 
 
-### Learning points (tech & soft skills)
+### Learning points 
 
 #### Methodology
 The importance of reaching MVP, and testing MVP thoroughly at that point to make sure the principles behind the code work  before proceeding to more complex elements was my principal learning point from this project. 
 
-Having spent several days development more advanced features without reaching MVP, when I hit blockers on MVP elements this was complicated by having complex code already written in other areas. 
+Having spent several days development more advanced features without reaching MVP, when I hit blockers on MVP elements this was complicated by having advanced code already written in other areas. 
 
-I also was reminded of the importance of building code one step at a time, and not trying to make large jumps before testing. If you cannot see a way of incrementally adding features in a controlled manner rather than writing everything at one, your code is probably not as optimised as it could be.
+I also was reminded of the importance of building code one step at a time, and not trying to make large jumps before testing. If you cannot see a way of incrementally adding features in a controlled manner rather than writing everything at once, your code is probably not as optimised as it could be.
 
 In line with this, my Trello board usage was not as disciplined as it could have been, and having a clear picture of what tasks were outstanding and their importance would have been a clear benefit, and is something I have implemented subequent to this project. 
 
