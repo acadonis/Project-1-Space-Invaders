@@ -1,11 +1,10 @@
 # GA Project 1: Space Invaders 
 
-![Space Invaders](./readme/spaceinvaders.jpg)
+<img src="./readme/spaceinvaders.jpg" width="50%" alt="Space Invaders">
 
 ### Link
 
 [Space Invaders](https://acadonis.github.io/space-invaders/)
-
 
 ### Installation
 
