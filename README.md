@@ -1,6 +1,6 @@
 # GA Project 1: Space Invaders 
 
-<img src="./readme/spaceinvaders.jpg" width="50%" alt="Space Invaders">
+<img src="./readme/spaceinvaders.jpg" width="75%" alt="Space Invaders">
 
 ### Link
 
