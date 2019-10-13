@@ -1,8 +1,11 @@
 # GA Project 1: Space Invaders 
 
+![Space Invaders](./readme/spaceinvaders.jpeg)
+
 ### Link
 
 [Space Invaders](https://acadonis.github.io/space-invaders/)
+
 
 ### Installation
 
@@ -16,7 +19,7 @@ Shoot some invaders!
 
 ### Controls
 
-Arrow keys to move left and right, spacebar to shoot. Cmd r to start a new game :wink:
+Arrow keys to move left and right, spacebar to shoot. Command r to start a new game :wink:
 
 ### Brief
 
