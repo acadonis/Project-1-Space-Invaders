@@ -32,7 +32,7 @@ Additional suggested features included responsive design, increasing difficulty 
 
 ### Overview & concept of the project
 
-From the outset I wanted to ensure that the aliens presented a legitimate threat to the player, forcing them to constantly balance the risks of attack and defense. As such I wanted the code to allow for a fast paced game, with both the turret firing and aliens' bombs moving at speed and requiring good reactions on the part of the player.
+From the outset I wanted to ensure that the aliens presented a legitimate threat to the player, forcing them to constantly balance the risks of attack and defence. As such I wanted the code to allow for a fast paced game, with both the turret firing and aliens' bombs moving at speed and requiring good reactions on the part of the player.
 
 ### Technologies used
 
@@ -63,7 +63,7 @@ The turret and laster mechanics did not prove as difficult as expected, which th
 
 The overall solution to the movement mechanics of the aliens, using multiple arrays with relative positioning to the grid and applying / disapplying classes as appropriate, was arrived at after several other attempts using a single array and splicing elements from this. 
 
-These other attempts led to a host of issues which required a rethink on the approach, and the deletion of significant amounts of code. While extremely frustrating at the time, this was a valuable lesson in not getting too attached to your code if it is not delivering the required functionality. . 
+These other attempts led to a host of issues which required a rethink on the approach, and the deletion of significant amounts of code. While extremely frustrating at the time, this was a valuable lesson in not getting too attached to your code if it is not delivering the required functionality.
 
 ### Styling
 
@@ -121,7 +121,7 @@ function fireMissile(e) {
 
 * The firing of multiple instances of the turret laser.
 
-* A simple but striking design which pays homage to the original but has it's own personality. 
+* A simple but striking design which pays homage to the original but has its own personality. 
 
 * A game which meets the MVP and my original requirement for a fast paced, reaction dependant experience.
 
@@ -156,12 +156,12 @@ Having spent several days development more advanced features without reaching MV
 
 I also was reminded of the importance of building code one step at a time, and not trying to make large jumps before testing. If you cannot see a way of incrementally adding features in a controlled manner rather than writing everything at once, your code is probably not as optimised as it could be.
 
-In line with this, my Trello board usage was not as disciplined as it could have been, and having a clear picture of what tasks were outstanding and their importance would have been a clear benefit, and is something I have implemented subequent to this project. 
+In line with this, my Trello board usage was not as disciplined as it could have been, and having a clear picture of what tasks were outstanding and their importance would have been a clear benefit, and is something I have implemented subsequent to this project. 
 
 #### Technical
 The project developed my technical skills in every area of the technologies used. In Javascript, I became more comfortable with the use of arrays, functions and structuring variables to avoid scoping issues. Avoiding coding "soup" and functions become too unwieldy was also something I was mindful of, with a degree of success.
 
-The use of SASS for the CSS styling increased my knowledge of this useful tool, and practice with flexbox in CSS meant the layout of the game was a relativey straightforward. 
+The use of SASS for the CSS styling increased my knowledge of this useful tool, and practice with flexbox in CSS meant the layout of the game was a relatively straightforward. 
 
 
 
