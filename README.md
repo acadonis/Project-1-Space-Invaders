@@ -22,7 +22,7 @@ Arrow keys to move left and right, spacebar to shoot. Command r to start a new g
 
 ### Brief
 
-I was tasked to create a a Space Invaders game, with the ability to clear a single wave of aliens and display a player's score at the end of the game as the MVP.
+I was tasked to create a Space Invaders game, with the ability to clear a single wave of aliens and display a player's score at the end of the game as the MVP.
 
 Additional suggested features included responsive design, increasing difficulty levels and a persistent leaderboard.
 
